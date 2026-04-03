@@ -1,4 +1,5 @@
 ﻿using CharacterCalculator.RGPSystem.Characteristcs;
+using System.Text;
 
 namespace CharacterCalculator.Interface
 {
@@ -8,6 +9,12 @@ namespace CharacterCalculator.Interface
         private const int LEVEL_PAD = 10;
         private const int COEFF_PAD = 15;
         private const int TOTAL_LEVEL_PAD = 15;
+
+        public void InitEcoding()
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.InputEncoding = Encoding.UTF8;
+        }
 
         public void PrintCharacterInfo()
         {
