@@ -2,12 +2,14 @@
 using CharacterCalculator.RGPSystem.Characteristcs;
 using CharacterCalculator.RGPSystem.Meta;
 using CharacterCalculator.Save_Load;
+using Newtonsoft.Json;
 
 namespace CharacterCalculator
 {
     internal class Program
     {
-        private const string PATH = "player.txt";
+        private const string PATH = "player.json";
+        private const string UPGRADE_PATH = "UpgradeConfiguration.json";
 
         private static IPersistentData _persistentData;
         private static IDataProvider _dataProvider;
@@ -19,6 +21,11 @@ namespace CharacterCalculator
             InitData();
 
             _interface.PrintCharacterInfo();
+
+            var config =  new UpgradeConfig();
+            var json = JsonConvert.SerializeObject(config, Formatting.Indented);
+
+            File.WriteAllText(UPGRADE_PATH, json);
 
             Console.ReadKey();
         }
@@ -37,26 +44,6 @@ namespace CharacterCalculator
             if (!provider.TryLoad())
             {
                 data.PlayerData = new PlayerData();
-                data.PlayerData.Characteristics = new List<Characteristic>();
-                data.PlayerData.Characteristics.Add(new Characteristic()
-                {
-                    Name = Characteristics.STREGTH,
-                    Coef = 1.4f,
-                    Level = 65,
-                    TotalLevel = 0,
-                });
-                data.PlayerData.Buffs = new List<Buff>();
-                data.PlayerData.Buffs.Add(new Buff()
-                {
-                    Characteristics = new List<string>()
-                    {
-                        Characteristics.STREGTH,
-                        Characteristics.AGILITY,
-                    },
-                    Name = "TestBuff",
-                    Coeff = 2f
-                });
-
                 provider.Create();
             }
 
