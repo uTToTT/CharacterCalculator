@@ -1,5 +1,5 @@
 ﻿using CharacterCalculator.Interface;
-using CharacterCalculator.RGPSystem.Characteristcs;
+using CharacterCalculator.RGPSystem.Calculator;
 using CharacterCalculator.RGPSystem.Meta;
 using CharacterCalculator.Save_Load;
 using Newtonsoft.Json;
@@ -14,46 +14,72 @@ namespace CharacterCalculator
         private static IPersistentData _persistentData;
         private static IDataProvider _dataProvider;
         private static InterfaceController _interface;
+        private static UpgradeConfig _upgradeConfig;
+        private static CalculatorController _calculatorController;
 
         static void Main(string[] args)
         {
-            InitInterface();
-            InitData();
+            while (true)
+            {
+                InitData();
+                LoadData();
+                InitInterface();
+                InitCalculator();
 
-            _interface.PrintCharacterInfo();
+                _calculatorController.Calc();
 
-            var config =  new UpgradeConfig();
-            var json = JsonConvert.SerializeObject(config, Formatting.Indented);
+                _interface.PrintCharacterInfo();
+                _dataProvider.Save();
 
-            File.WriteAllText(UPGRADE_PATH, json);
-
-            Console.ReadKey();
+                Console.WriteLine("Press any button to recalc");
+                Console.ReadKey();
+                _calculatorController.Calc();
+            }
         }
+
+        #region Init
 
         private static void InitInterface()
         {
-            _interface = new InterfaceController();
-            _interface.InitEcoding();
+            _interface = new InterfaceController(_persistentData);
+        }
+
+        private static void InitCalculator()
+        {
+            _calculatorController = new CalculatorController(_persistentData, _upgradeConfig);
         }
 
         private static void InitData()
         {
             var data = new PersistentData();
-            var provider = new DataLocalProvider(PATH, data);
+            _persistentData = data;
+
+            var provider = new DataLocalProvider(PATH, _persistentData);
 
             if (!provider.TryLoad())
             {
-                data.PlayerData = new PlayerData();
+                _persistentData.PlayerData = PlayerData.CreateDefault();
                 provider.Create();
             }
 
-            _persistentData = data;
             _dataProvider = provider;
         }
 
+        #endregion
+
         private static void LoadData()
         {
+            if (!File.Exists(UPGRADE_PATH))
+            {
+                var config = UpgradeConfig.CreateDefault();
+                var json = JsonConvert.SerializeObject(config, Formatting.Indented);
 
+                File.WriteAllText(UPGRADE_PATH, json);
+            }
+
+            var text = File.ReadAllText(UPGRADE_PATH);
+            var data = JsonConvert.DeserializeObject<UpgradeConfig>(text);
+            _upgradeConfig = data;
         }
     }
 }

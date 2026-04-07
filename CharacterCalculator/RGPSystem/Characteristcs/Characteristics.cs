@@ -5,7 +5,7 @@
         /// <summary>
         /// Body
         /// </summary>
-        public const string STREGTH = "Сила";
+        public const string STRENGTH = "Сила";
         public const string AGILITY = "Спритність";
         public const string STAMINA = "Витривалість";
         public const string REPRODUCTION = "Репродукція";
@@ -31,19 +31,19 @@
         /// <summary>
         /// Rates
         /// </summary>
-        public const string MANA_POOL_DURABILITY = "";
-        public const string INSPIRATION_HP = "";
-        public const string HP = "";
-        public const string MP = "";
-        public const string POISON_RESISTENCE = "";
-        public const string STRESS_RESISTENCE = "";
-        public const string ACTION_POINTS = "";
-        public const string ARMOR = "";
-        public const string DISCARD = "";
-        public const string INVENTION_SPEED = "";
-        public const string CELL_MAGIC = "";
-        public const string LANGUAGE_LEARNING_SPEED = "";
-        public const string MAGIC_LEARNING_SPEED = "";
+        public const string MANA_POOL_DURABILITY = "ММВ";
+        public const string INSPIRATION_HP = "ХПН";
+        public const string HP = "ХП";
+        public const string MP = "МП";
+        public const string POISON_RESISTENCE = "ЯД";
+        public const string STRESS_RESISTENCE = "СТ";
+        public const string ACTION_POINTS = "ОД";
+        public const string ARMOR = "БР";
+        public const string DISCARD = "ЗНЖ";
+        public const string INVENTION_SPEED = "РВ";
+        public const string CELL_MAGIC = "Ячійка";
+        public const string LANGUAGE_LEARNING_SPEED = "Шв. мови";
+        public const string MAGIC_LEARNING_SPEED = "Шв. вузлів";
 
 
         /// <summary>

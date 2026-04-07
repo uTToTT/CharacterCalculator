@@ -16,6 +16,8 @@ namespace CharacterCalculator.Save_Load
 
         public void Save()
         {
+            var json = JsonConvert.SerializeObject(_persistentData, Formatting.Indented);
+            File.WriteAllText(_path, json);
         }
 
         public bool TryLoad()
@@ -31,7 +33,6 @@ namespace CharacterCalculator.Save_Load
 
             if (data == null)
             {
-                return false;
                 throw new Exception("Failed to deserialize PlayerCharacteristic");
             }
 

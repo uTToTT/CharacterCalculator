@@ -6,21 +6,33 @@
 
         public UpgradeConfig()
         {
-            Upgrades = new List<Upgrade>();
+
+        }
+
+        public static UpgradeConfig CreateDefault()
+        {
+            UpgradeConfig config = new UpgradeConfig();
+
+            config.Upgrades = new List<Upgrade>();
 
 
             /// Body ///
-            
+
             #region STRENGTH
 
-            Upgrades.Add(new Upgrade());
+            config.Upgrades.Add(new Upgrade()
+            {
+                Owner = Characteristcs.Characteristics.STRENGTH,
+                EveryLevel = 1,
+            });
 
             #endregion
 
             #region AGILITY
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.AGILITY,
                 EveryLevel = 1,
                 Buffs = new List<Buff>()
                 {
@@ -36,8 +48,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.AGILITY,
                 EveryLevel = 5,
                 Buffs = new List<Buff>()
                 {
@@ -53,8 +66,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.AGILITY,
                 EveryLevel = 10,
                 Buffs = new List<Buff>()
                 {
@@ -74,8 +88,9 @@
 
             #region STAMINA
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.STAMINA,
                 EveryLevel = 1,
                 Buffs = new List<Buff>()
                 {
@@ -100,8 +115,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.STAMINA,
                 EveryLevel = 5,
                 Buffs = new List<Buff>()
                 {
@@ -117,8 +133,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.STAMINA,
                 EveryLevel = 10,
                 Buffs = new List<Buff>()
                 {
@@ -147,8 +164,9 @@
 
             #region REPRODUCTION
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.REPRODUCTION,
                 EveryLevel = 1,
                 Buffs = new List<Buff>()
                 {
@@ -158,7 +176,7 @@
                         Amount = 0.01f,
                         Characteristics = new List<string>
                         {
-                            Characteristcs.Characteristics.STREGTH,
+                            Characteristcs.Characteristics.STRENGTH,
                             Characteristcs.Characteristics.AGILITY,
                             Characteristcs.Characteristics.STAMINA,
                         }
@@ -166,8 +184,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.REPRODUCTION,
                 EveryLevel = 10,
                 Buffs = new List<Buff>()
                 {
@@ -177,7 +196,7 @@
                         Amount = 0.1f,
                         Characteristics = new List<string>
                         {
-                            Characteristcs.Characteristics.STREGTH,
+                            Characteristcs.Characteristics.STRENGTH,
                             Characteristcs.Characteristics.AGILITY,
                             Characteristcs.Characteristics.STAMINA,
                         }
@@ -200,8 +219,9 @@
 
             #region ORATORY 
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.ORATORY,
                 EveryLevel = 1,
                 Buffs = new List<Buff>()
                 {
@@ -221,8 +241,9 @@
 
             #region INTELLIGENCE
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.INTELLIGENCE,
                 EveryLevel = 2,
                 Buffs = new List<Buff>()
                 {
@@ -238,8 +259,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.INTELLIGENCE,
                 EveryLevel = 5,
                 Buffs = new List<Buff>()
                 {
@@ -255,8 +277,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.INTELLIGENCE,
                 EveryLevel = 10,
                 Buffs = new List<Buff>()
                 {
@@ -277,7 +300,10 @@
                         Amount = 0.03f,
                         Characteristics = new List<string>
                         {
-                            Characteristcs.Characteristics.SPIRIT,
+                            Characteristcs.Characteristics.MAGIC,
+                            Characteristcs.Characteristics.COMPOSURE,
+                            Characteristcs.Characteristics.STABILITY,
+                            Characteristcs.Characteristics.MANA_POOL,
                         }
                     }
                 }
@@ -287,8 +313,9 @@
 
             #region MEMORY
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.MEMORY,
                 EveryLevel = 1,
                 Buffs = new List<Buff>()
                 {
@@ -317,7 +344,11 @@
 
             #region ATTENTIVENESS
 
-            Upgrades.Add(new Upgrade());
+            config.Upgrades.Add(new Upgrade()
+            {
+                Owner = Characteristcs.Characteristics.ATTENTIVENESS,
+                EveryLevel = 0,
+            });
 
             #endregion
 
@@ -325,8 +356,9 @@
 
             #region MAGIC
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.MAGIC,
                 EveryLevel = 1,
                 Buffs = new List<Buff>()
                 {
@@ -344,8 +376,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.MAGIC,
                 EveryLevel = 10,
                 Buffs = new List<Buff>()
                 {
@@ -368,8 +401,9 @@
 
             #region COMPOSURE
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.COMPOSURE,
                 EveryLevel = 1,
                 Buffs = new List<Buff>()
                 {
@@ -385,8 +419,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.COMPOSURE,
                 EveryLevel = 5,
                 Buffs = new List<Buff>()
                 {
@@ -402,8 +437,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.COMPOSURE,
                 EveryLevel = 10,
                 Buffs = new List<Buff>()
                 {
@@ -423,8 +459,9 @@
 
             #region STABILITY
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.STABILITY,
                 EveryLevel = 1,
                 Buffs = new List<Buff>()
                 {
@@ -440,8 +477,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.STABILITY,
                 EveryLevel = 5,
                 Buffs = new List<Buff>()
                 {
@@ -457,8 +495,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.STABILITY,
                 EveryLevel = 10,
                 Buffs = new List<Buff>()
                 {
@@ -478,8 +517,9 @@
 
             #region MANA_POOL
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.MANA_POOL,
                 EveryLevel = 1,
                 Buffs = new List<Buff>()
                 {
@@ -504,8 +544,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.MANA_POOL,
                 EveryLevel = 5,
                 Buffs = new List<Buff>()
                 {
@@ -530,8 +571,9 @@
                 }
             });
 
-            Upgrades.Add(new Upgrade()
+            config.Upgrades.Add(new Upgrade()
             {
+                Owner = Characteristcs.Characteristics.MANA_POOL,
                 EveryLevel = 10,
                 Buffs = new List<Buff>()
                 {
@@ -566,6 +608,24 @@
             });
 
             #endregion
+
+            return config;
+        }
+
+        public List<Buff> GetBuffsToCharacteristic(string name)
+        {
+            return Upgrades
+                .SelectMany(upgrade => upgrade.Buffs)
+                .Where(buff => buff.Characteristics.Contains(name))
+                .ToList();
+        }
+
+        public List<Upgrade> GetUpgradesToCharacteristic(string name)
+        {
+            return Upgrades
+                .Where(upgrade => upgrade.Buffs
+                    .Any(buff => buff.Characteristics.Contains(name)))
+                .ToList();
         }
     }
 }
