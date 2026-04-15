@@ -115,6 +115,8 @@ namespace CharacterCalculator.RGPSystem.Calculator
 
                 foreach (var buff in buffs)
                 {
+                    if (rate.Name == Characteristcs.Characteristics.MAGIC_LEARNING_SPEED)
+                        rate.Value += 0.003f;
                     rate.Value += buff.Amount;
                 }
             }

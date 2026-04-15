@@ -26,10 +26,5 @@ namespace CharacterCalculator.RGPSystem.Meta
 
             return sb.ToString();
         }
-
-        public string ToShortString()
-        {
-            return $"([{Amount}] - {Name});";
-        }
     }
 }

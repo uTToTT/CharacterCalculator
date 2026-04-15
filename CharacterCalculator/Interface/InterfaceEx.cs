@@ -43,7 +43,7 @@ namespace CharacterCalculator.Interface
             int maxBuffs = buffs.Count;
 
             string lvl = $"[{level}]";
-            string cf = $"[X{coef:F2}]";
+            string cf = $"[X{coef:F3}]";
             string total = $"[---]";
 
             string str =
@@ -75,7 +75,7 @@ namespace CharacterCalculator.Interface
 
             string name = characteristic;
             string lvl = $"[{level}]";
-            string cf = $"[X{coef:F2}]";
+            string cf = $"[X{coef:F3}]";
             string total = $"[{totalLevel}]";
 
             string str =
@@ -111,7 +111,7 @@ namespace CharacterCalculator.Interface
 
             // VALUE (green)
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write($"{($"[{value:0.##}]"),InterfaceConstants.RATE_VALUE_PAD}");
+            Console.Write($"{($"[{value:0.###}]"),InterfaceConstants.RATE_VALUE_PAD}");
             Console.ResetColor();
 
             for (int i = 0; i < maxBuffs; i++)

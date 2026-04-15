@@ -540,6 +540,15 @@
                         {
                             Characteristcs.Characteristics.MANA_POOL_DURABILITY,
                         }
+                    },
+                    new Buff()
+                    {
+                        Name = Characteristcs.Characteristics.MANA_POOL,
+                        Amount = 0.01f,
+                        Characteristics = new List<string>
+                        {
+                            Characteristcs.Characteristics.MAGIC_LEARNING_SPEED,
+                        }
                     }
                 }
             });
@@ -595,15 +604,7 @@
                             Characteristcs.Characteristics.MANA_POOL_DURABILITY,
                         }
                     },
-                    new Buff()
-                    {
-                        Name = Characteristcs.Characteristics.MANA_POOL,
-                        Amount = 0.01f,
-                        Characteristics = new List<string>
-                        {
-                            Characteristcs.Characteristics.MAGIC_LEARNING_SPEED,
-                        }
-                    }
+                   
                 }
             });
 
